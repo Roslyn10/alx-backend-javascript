@@ -6,3 +6,7 @@ export interface Teacher {
 	location: string;
 	[key: string]: any;
 }
+
+export interface Director extends Teacher {
+	numberOfReports: number;
+}
