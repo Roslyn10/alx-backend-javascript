@@ -1,5 +1,5 @@
 // Function that displays a message on the console
-function displayMessage (message) {
+const displayMessage = (message) => {
   process.stdout.write(message);
 }
 
