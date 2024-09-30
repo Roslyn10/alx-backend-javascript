@@ -1,4 +1,6 @@
+// A simple HTTP server that
 // Displays "Hello Holberton School!"
+// On port 1245, assigned to the variable app
 
 var http = require('http');
 
