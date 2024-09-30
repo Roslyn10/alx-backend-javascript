@@ -1,19 +1,14 @@
 // Function that prints a message to stdout and recieves an input
-const readline = require('readline');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-const r1 = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+process.stdin.on('readable', () => {
+  const message = process.stdin.read();
+
+  if (message) {
+    process.stdout.write(`Your name is: ${message}`);
+  }
 });
-r1.question('Welcome to Holberton School, what is your name?\n', (name) => {
-  console.log('Your name is: ' + name);
-  r1.close();
-});
 
-function displayGoodbyeMessage () {
-  console.log('This important software is now closing');
-}
-
-process.on('exit', () => {
-  displayGoodbyeMessage();
+process.stdin.on('exit', () => {
+  process.stdout.write('This important software is now closing\n');
 });
