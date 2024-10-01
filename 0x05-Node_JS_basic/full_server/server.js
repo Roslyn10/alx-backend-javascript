@@ -1,6 +1,6 @@
 // A small Express server
 const express = require('express');
-const router = require('./router/index');
+const router = require('./routers/index');
 
 const app = express();
 const port = 1245;

@@ -4,12 +4,12 @@
 const fs = require('fs').promises;
 
 function readDatabase(filePath) {
-	return fs.readDatabase(filePath, 'utf-8')
+	return fs.readFile(filePath, 'utf-8')
 	.then((data) => {
 		return data;
 	})
 	.catch((error) => {
-		throw new Error('Error reading the file: ${error.message}');
+		throw new Error(`Error reading the file: ${error.message}`;
 	});
 }
 
