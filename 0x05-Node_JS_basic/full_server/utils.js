@@ -1,16 +1,28 @@
-// Accepts a file path as an arugument
-// Reads the database asynchronously
-// returns a promise
-const fs = require('fs').promises;
+const { readFile } = require('fs');
 
 function readDatabase(filePath) {
-	return fs.readFile(filePath, 'utf-8')
-	.then((data) => {
-		return data;
-	})
-	.catch((error) => {
-		throw new Error(`Error reading the file: ${error.message}`);
-	});
-}
+  const students = {};
+  return new Promise((resolve, reject) => {
+    readFile(filePath, (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        const lines = data.toString().split('\n');
+        const noHeader = lines.slice(1);
+        for (let i = 0; i < noHeader.length; i += 1) {
+          if (noHeader[i]) {
+            const field = noHeader[i].toString().split(',');
+            if (Object.prototype.hasOwnProperty.call(students, field[3])) {
+              students[field[3]].push(field[0]);
+            } else {
+              students[field[3]] = [field[0]];
+            }
+          }
+        }
+        resolve(students);
+      }
+    });
+  });
+};
 
-modules.exports = readDatabase;
+module.exports = readDatabase;
