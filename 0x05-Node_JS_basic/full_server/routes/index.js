@@ -10,6 +10,6 @@ router.get('/students', Studentcontroller.getAllStudents);
 
 router.get('/', AppController.getHomepage);
 
-router.get('/students/:major', Studentcontroller.getAllStudents);
+router.get('/students/:major', Studentcontroller.getAllStudentsByMajor);
 
 module.exports = router;
