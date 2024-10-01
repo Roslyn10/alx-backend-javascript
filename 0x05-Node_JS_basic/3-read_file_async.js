@@ -23,7 +23,7 @@ const countStudents = (dataPath) => {
       for (const line of fileLines.slice(1)) {
         const studentRecord = line.split(',');
         if (studentRecord.length === 1 && studentRecord[0] === '') {
-          continue; // Skip empty lines
+          continue;
         }
         const studentPropValues = studentRecord.slice(0, studentRecord.length - 1);
         const field = studentRecord[studentRecord.length - 1];
@@ -43,7 +43,8 @@ const countStudents = (dataPath) => {
       }
     })
     .catch((error) => {
-      throw new Error('Cannot load the database');
+      console.error(error.message);
+      return Promise.reject(new Error('Cannot load the databas'));
     });
 };
 
