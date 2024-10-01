@@ -9,7 +9,7 @@ function readDatabase(filePath) {
 		return data;
 	})
 	.catch((error) => {
-		throw new Error(`Error reading the file: ${error.message}`;
+		throw new Error(`Error reading the file: ${error.message}`);
 	});
 }
 
