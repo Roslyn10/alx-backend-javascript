@@ -22,7 +22,7 @@ class StudentController {
 	}
 
   static getAllStudentsByMajor(request, response) {
-    const` field = request.params.major;
+    const field = request.params.major;
     readDatabase(process.argv[2].toString()).then((students) => {
       if (!(field in students)) {
         response.status(500).send('Major parameter must be CS or SWE');
