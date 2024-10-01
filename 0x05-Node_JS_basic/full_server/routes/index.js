@@ -6,10 +6,10 @@ const StudentsController = require('./controllers/StudentContoller');
 
 const router = express.Router();
 
-router.get('/students', Studentcontroller.getAllStudents);
+router.get('/students', Studentscontroller.getAllStudents);
 
 router.get('/', AppController.getHomepage);
 
-router.get('/students/:major', Studentcontroller.getAllStudentsByMajor);
+router.get('/students/:major', Studentscontroller.getAllStudentsByMajor);
 
 module.exports = router;
