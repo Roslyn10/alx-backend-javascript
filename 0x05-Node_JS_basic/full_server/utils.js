@@ -12,3 +12,5 @@ function readDatabase(filePath) {
 		throw new Error('Error reading the file: ${error.message}');
 	});
 }
+
+modules.exports = readDatabase;
