@@ -1,25 +1,20 @@
-//
-const readDatabase = require(../utils);
+const readDatabase = require('../utils');
 
-class StudentController {
-	static getAllStudents(request, response) {
-		readDatabase('./database.csv')
-		.then((studentGroups) => {
-			res.status(200).send("this is the list of our students\n");
-			const sortedFiels = Object.keys(studentGroups).sort((a, b) => a.toLowerCase().localCompare(b.toLowerCase())));
-
-		sortedFields.forEach((field) => {
-			const students = studentGroups[field];
-			const studentNames = students.map((student) => student.firstname).join(',');
-			res.write('Number of students im ${field}: ${students.length}. List: ${studentNames}\n');
-		});
-		res.end();
-		})
-		.catch((err) => {
-			console.error(err);
-			res.status(500).send('Cannot load the database');
-		});
-	}
+class StudentsController {
+  static getAllStudents(request, response) {
+    readDatabase(process.argv[2].toString()).then((students) => {
+      const output = [];
+      output.push('This is the list of our students');
+      const keys = Object.keys(students);
+      keys.sort();
+      for (let i = 0; i < keys.length; i += 1) {
+        output.push(`Number of students in ${keys[i]}: ${students[keys[i]].length}. List: ${students[keys[i]].join(', ')}`);
+      }
+      response.status(200).send(output.join('\n'));
+    }).catch(() => {
+      response.status(500).send('Cannot load the database');
+    });
+  }
 
   static getAllStudentsByMajor(request, response) {
     const field = request.params.major;
@@ -34,6 +29,5 @@ class StudentController {
     });
   }
 }
-
 
 module.exports = StudentsController;
