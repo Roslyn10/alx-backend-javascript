@@ -52,7 +52,7 @@ describe("calculateNumber()", function () {
     });
     it(`Checking if numbers round(Division)`, function () {
         const result = calculateNumber(15.5, 5.5, 'divide');
-        assert.strictEqual(result, 2.5);
+        assert.strictEqual(result, 2.6666666666666665);
     });
     it(`Negative with a positive number(Addition)`, function () {
         const result = calculateNumber(15.5, -2.5, 'add');
@@ -68,7 +68,7 @@ describe("calculateNumber()", function () {
     });
     it(`Negative with a positive number(Division)`, function () {
         const result = calculateNumber(15.5, -2.5, 'divide');
-        assert.strictEqual(result, -7.5);
+        assert.strictEqual(result, -8);
     });
     it(`Checking with two zeros(Addition)`, function () {
         const result = calculateNumber(0, 0, 'add');
@@ -76,7 +76,7 @@ describe("calculateNumber()", function () {
     });
     it(`Checking with two zeros(Subtraction)`, function () {
         const result = calculateNumber(0, 0, 'subtract');
-        assert.strictEqual(result, );
+        assert.strictEqual(result, 0);
     });
     it(`Checking with two zeros(Multiplication)`, function () {
         const result = calculateNumber(0, 0, 'multiply');
@@ -84,7 +84,7 @@ describe("calculateNumber()", function () {
     });
     it(`Checking with two zeros(Division)`, function () {
         const result = calculateNumber(0, 0, 'divide');
-        assert.strictEqual(result, Error);
+        assert.strictEqual(result, 'Error');
     });
     it(`Checking a large number and a smaller number to round(Addition)`, function () {
         const result = calculateNumber(372846239.23, 90, 'add');
@@ -116,7 +116,7 @@ describe("calculateNumber()", function () {
     });
     it(`Checking zero and a number to be rounded(Division)`, function () {
         const result = calculateNumber(37.23, 0, 'divide');
-        assert.strictEqual(result, Error);
+        assert.strictEqual(result, 'Error');
     });
     it(`Checking for a number and no other argument(Addition)`, function () {
         const result = calculateNumber(389, 'add');
@@ -163,12 +163,12 @@ describe("calculateNumber()", function () {
         assert.strictEqual(result, 12);
     });
     it(`Check rounding with negative decimals(Division)`, function () {
-        const result = calculateNumber(-2.323, -5.6, 'division');
+        const result = calculateNumber(-2.323, -5.6, 'divide');
         assert.strictEqual(result, 0.3333333333333333);
     });
     it(`Checking very small numbers(Addition)`, function () {
         const result = calculateNumber(-0.00001, -0.0000002, 'add');
-        assert.strictEqual(result, 0);
+        assert.strictEqual(result, -0);
     });
     it(`Checking very small numbers(Subtraction)`, function () {
         const result = calculateNumber(-0.00001, -0.0000002, 'subtract');
