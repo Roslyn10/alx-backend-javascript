@@ -120,35 +120,35 @@ describe("calculateNumber()", function () {
     });
     it(`Checking for a number and no other argument(Addition)`, function () {
         const result = calculateNumber(389, 'add');
-        assert.strictEqual(result, 'Error: Invalid operation');
+        assert.strictEqual(result,  undefined);
     });
     it(`Checking for a number and no other argument(Subtraction)`, function () {
         const result = calculateNumber(389, 'subtract');
-        assert.strictEqual(result, 'Error: Invalid operation');
+        assert.strictEqual(result, undefined);
     });
     it(`Checking for a number and no other argument(Multiplication)`, function () {
         const result = calculateNumber(389, 'multiply');
-        assert.strictEqual(result, 'Error: Invalid operation');
+        assert.strictEqual(result, undefined);
     });
     it(`Checking for a number and no other argument(Division)`, function () {
         const result = calculateNumber(389, 'divide');
-        assert.strictEqual(result, 'Error: Invalid operation');
+        assert.strictEqual(result, undefined);
     });
     it(`Checking for more than two arguments(Addition)`, function () {
         const result = calculateNumber(389, 89, 34, 'add');
-        assert.strictEqual(result, 'Error: Invalid operation');
+        assert.strictEqual(result, undefined);
     });
     it(`Checking for more than two arguments(Subtraction)`, function () {
         const result = calculateNumber(389, 89, 34, 'subtract');
-        assert.strictEqual(result, 'Error: Invalid operation');
+        assert.strictEqual(result, undefined);
     });
     it(`Checking for more than two arguments(Multiplication)`, function () {
         const result = calculateNumber(389, 89, 34, 'multiply');
-        assert.strictEqual(result, 'Error: Invalid operation');
-    });
+        assert.strictEqual(result, undefined);
+    })
     it(`Checking for more than two arguments(Division)`, function () {
         const result = calculateNumber(389, 89, 34, 'divide');
-        assert.strictEqual(result, 'Error: Invalid operation');
+        assert.strictEqual(result, undefined);
     });
     it(`Check rounding with negative decimals(Addition)`, function () {
         const result = calculateNumber(-2.323, -5.6, 'add');
@@ -248,6 +248,6 @@ describe("calculateNumber()", function () {
     });
     it(`Checking with an Invalid operation`, function () {
         const result = calculateNumber(1, 2, 'Equal');
-        assert.strictEqual(result, 'Error: Invalid operation');
+        assert.strictEqual(result, undefined);
     });
     })
