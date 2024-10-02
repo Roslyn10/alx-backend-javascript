@@ -32,9 +32,34 @@ describe("calculateNumber()", function () {
 	});
 	it(`Checking for a number and no other argument`, function () {
 		const result = calculateNumber(783, );
-		assert.strictEqual(result, nan);
+		assert.strictEqual(result, NaN);
 	});
 	it(`Checking for more than two arguments`, function () {
 		const result = calculateNumber(-9823, 2389, 12);
+		assert.strictEqual(result, -7434);
+	});
+	it(`Checking rounding with negative decimals`, function () {
+		const result = calculateNumber(-1.5, -2.5);
+		assert.strictEqual(result, -3);
+	});
+	it(`Checking very small numbers`, function () {
+		const result = calculateNumber(0.0001, 0.0002);
+		assert.strictEqual(result, 0);
+	});
+	it(`Checking with NaN inputs`, function () {
+		const result = calculateNumber(NaN, 5);
+		assert.strictEqual(result, NaN);
+	});
+	it(`Checking with Infinifty`, function () {
+		const result = calculateNumber(Infinity, 1);
+		assert.strictEqual(result, Infinity);
+	});
+	it(`Checking with large numbers`, function () {
+		const result = calculateNumber(1e10, 1e10);
+		assert.strictEqual(result, 20000000000);
+	});
+	it(`Checking with a large number and a small number`, function () {
+		const result = calculateNumber(1e10, -1e10);
+		assert.strictEqual(result, 0);
 	});
 });
