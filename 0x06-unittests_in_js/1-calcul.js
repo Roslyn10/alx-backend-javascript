@@ -6,16 +6,13 @@ function calculateNumber(a, b, operation) {
     let result;
 
     switch (operation) {
-        case 'add':
+        case 'SUM':
             result = a_round + b_round;
             break;
-        case 'subtract':
+        case 'SUBTRACT':
             result = a_round - b_round;
             break;
-        case 'multiply':
-            result = a_round * b_round;
-            break;
-        case 'divide':
+        case 'DIVIDE':
             if (b_round === 0) {
 		    return 'Error';
             }
