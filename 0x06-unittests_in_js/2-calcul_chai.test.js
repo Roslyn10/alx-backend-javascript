@@ -13,7 +13,7 @@ describe("calculateNumber()", function () {
     });
     it(`Checking for rounding with small numbers (Division)`, function () {
         const result = calculateNumber('DIVIDE', 1.5, 5.2);
-        expect(result).to.equal(0.288);
+        expect(result).to.equal(0.4);
     });
     it(`Checking for rounding with large numbers (Addition)`, function () {
         const result = calculateNumber('SUM', 6244692.13849, 742113);
@@ -37,11 +37,11 @@ describe("calculateNumber()", function () {
     });
     it(`Checking if numbers round (Division)`, function () {
         const result = calculateNumber('DIVIDE', 15.5, 5.5);
-        expect(result).to.equal(2.8181818181818183);
+        expect(result).to.equal(2.6666666666666665);
     });
     it(`Negative with a positive number (Addition)`, function () {
         const result = calculateNumber('SUM', 15.5, -2.5);
-        expect(result).to.equal(13);
+        expect(result).to.equal(14);
     });
     it(`Negative with a positive number (Subtraction)`, function () {
         const result = calculateNumber('SUBTRACT', 15.5, -2.5);
@@ -49,7 +49,7 @@ describe("calculateNumber()", function () {
     });
     it(`Negative with a positive number (Division)`, function () {
         const result = calculateNumber('DIVIDE', 15.5, -2.5);
-        expect(result).to.equal(-6.2);
+        expect(result).to.equal(-8);
     });
     it(`Checking with two zeros (Addition)`, function () {
         const result = calculateNumber('SUM', 0, 0);
@@ -117,15 +117,15 @@ describe("calculateNumber()", function () {
     });
     it(`Check rounding with negative decimals (Subtraction)`, function () {
         const result = calculateNumber('SUBTRACT', -2.323, -5.6);
-        expect(result).to.equal(-4);
+        expect(result).to.equal(4);
     });
     it(`Check rounding with negative decimals (Division)`, function () {
         const result = calculateNumber('DIVIDE', -2.323, -5.6);
-        expect(result).to.equal(0.4142857142857143);
+        expect(result).to.equal(0.3333333333333333);
     });
     it(`Checking very small numbers (Addition)`, function () {
         const result = calculateNumber('SUM', -0.00001, -0.0000002);
-        expect(result).to.equal(-0.0000102);
+        expect(result).to.equal(0);
     });
     it(`Checking very small numbers (Subtraction)`, function () {
         const result = calculateNumber('SUBTRACT', -0.00001, -0.0000002);
@@ -133,11 +133,11 @@ describe("calculateNumber()", function () {
     });
     it(`Checking very small numbers (Division)`, function () {
         const result = calculateNumber('DIVIDE', -0.00001, -0.0000002);
-        expect(result).to.equal(50);
+        expect(result).to.equal('Error');
     });
     it(`Checking with very large numbers (Addition)`, function () {
         const result = calculateNumber('SUM', 9999999999999, 0.1);
-        expect(result).to.equal(10000000000000);
+        expect(result).to.equal(9999999999999);
     });
     it(`Checking with very large numbers (Subtraction)`, function () {
         const result = calculateNumber('SUBTRACT', 9999999999999, 0.1);
@@ -145,6 +145,6 @@ describe("calculateNumber()", function () {
     });
     it(`Checking with very large numbers (Division)`, function () {
         const result = calculateNumber('DIVIDE', 9999999999999, 0.1);
-        expect(result).to.equal(99999999999990);
+        expect(result).to.equal('Error');
     });
 });
