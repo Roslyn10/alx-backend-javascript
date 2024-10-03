@@ -250,4 +250,28 @@ describe("calculateNumber()", function () {
         const result = calculateNumber(1, 2, 'Equal');
         assert.strictEqual(result, undefined);
     });
+    it(`Checking with two positive numbers and a rounding them(addition)`, function () {
+	    const result = calculateNumber(2.0, 2.0, 'add');
+	    assert.strictEqual(result, 4);
+    });
+    it(`Checking if it rounds both numbers and adds them(Addition)`, function () {
+	    const result = calculateNumber(2.3, 1.8, 'add');
+	    assert.strictEqual(result, 4);
+    });
+    it(`Checking if two negative numbers add(Addition)`, function () {
+	    const result = calculateNumber(-2.3, -1.8, 'add');
+	    assert.strictEqual(result, -4);
+    });
+    it(`Checking for addition between a negative and a postive(Addition)`, function () {
+	    const result = calculateNumber(-2.0, 2.0, 'add');
+	    assert.strictEqual(result, 0);
+    });
+    it(`Checking for addition between a positive and a negative(Addition`, function () {
+	    const result = calculateNumber(2.0, -2.0, 'add');
+	    assert.strictEqual(result, 0);
+    });
+    it(`Checking for addition between zero and zero(Addition`, function () {
+	    const result = calculateNumber(0, 0, 'add');
+	    assert.strictEqual(result, 0);
+    });
     })
