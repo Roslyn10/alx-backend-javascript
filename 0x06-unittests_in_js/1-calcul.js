@@ -1,5 +1,5 @@
 // More in depth calculator
-function calculateNumber(a, b, operation) {
+function calculateNumber(operation, a, b) {
     const a_round = Math.round(a);
     const b_round = Math.round(b);
 
